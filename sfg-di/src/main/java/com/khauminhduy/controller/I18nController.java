@@ -1,18 +1,19 @@
 package com.khauminhduy.controller;
 
 import com.khauminhduy.services.GreetingService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class PropertyInjectedController {
+public class I18nController {
 
-    @Autowired
-    @Qualifier("propertyGreetingService")
-    public GreetingService greetingService;
+    private final GreetingService greetingService;
 
-    public String getGreeting() {
+    public I18nController(@Qualifier("i18nService") GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
+    public String sayHello() {
         return greetingService.greeting();
     }
 
