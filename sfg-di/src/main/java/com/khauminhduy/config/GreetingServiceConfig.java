@@ -12,9 +12,11 @@ import com.khauminhduy.services.PropertyGreetingService;
 import com.khauminhduy.services.SetterGreetingService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
+@ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -58,7 +60,7 @@ public class GreetingServiceConfig {
         return new PrimaryGreetingService();
     }
 
-    @Bean
+//    @Bean
     public ConstructorGreetingService constructorGreetingService() {
         return new ConstructorGreetingService();
     }
