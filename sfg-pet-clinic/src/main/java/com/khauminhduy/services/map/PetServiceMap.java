@@ -2,9 +2,11 @@ package com.khauminhduy.services.map;
 
 import com.khauminhduy.model.Pet;
 import com.khauminhduy.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
@@ -23,7 +25,7 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
 
     @Override
     public Pet save(Pet pet) {
-        return super.save(pet.getId(), pet);
+        return super.save(pet);
     }
 
     @Override

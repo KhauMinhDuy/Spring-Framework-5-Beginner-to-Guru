@@ -2,9 +2,11 @@ package com.khauminhduy.services.map;
 
 import com.khauminhduy.model.Vet;
 import com.khauminhduy.services.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
@@ -24,7 +26,7 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet vet) {
-        return super.save(vet.getId(), vet);
+        return super.save(vet);
     }
 
     @Override
