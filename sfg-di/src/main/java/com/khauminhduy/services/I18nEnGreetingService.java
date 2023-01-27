@@ -1,13 +1,17 @@
 package com.khauminhduy.services;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
+import com.khauminhduy.repositories.EnglishGreetingRepository;
+import lombok.AllArgsConstructor;
 
-@Profile({"EN", "default"})
-@Service("i18nService")
+@AllArgsConstructor
 public class I18nEnGreetingService implements GreetingService {
+
+    private final EnglishGreetingRepository englishGreetingRepository;
+
+
     @Override
     public String greeting() {
         return "Hello World - En";
     }
+
 }

@@ -6,6 +6,7 @@ import com.khauminhduy.controller.MyController;
 import com.khauminhduy.controller.PrimaryInjectedController;
 import com.khauminhduy.controller.PropertyInjectedController;
 import com.khauminhduy.controller.SetterInjectedController;
+import com.khauminhduy.services.PetService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -42,6 +43,10 @@ public class SfgDiApplication {
         System.out.println("----- spring profile");
         final I18nController i18nController = ctx.getBean("i18nController", I18nController.class);
         System.out.println(i18nController.sayHello());
+
+        System.out.println("----- petService");
+        final PetService petService = ctx.getBean("petService", PetService.class);
+        System.out.println(petService.getPetType());
 
     }
 
