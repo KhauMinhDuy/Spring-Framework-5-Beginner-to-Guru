@@ -1,11 +1,11 @@
 package com.khauminhduy.services.map;
 
 import com.khauminhduy.model.Vet;
-import com.khauminhduy.services.CrudService;
+import com.khauminhduy.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
     public Set<Vet> findAll() {
