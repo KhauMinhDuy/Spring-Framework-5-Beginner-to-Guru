@@ -6,7 +6,9 @@ import com.khauminhduy.controller.MyController;
 import com.khauminhduy.controller.PrimaryInjectedController;
 import com.khauminhduy.controller.PropertyInjectedController;
 import com.khauminhduy.controller.SetterInjectedController;
+import com.khauminhduy.services.FactoryBean;
 import com.khauminhduy.services.PetService;
+import com.khauminhduy.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -47,6 +49,17 @@ public class SfgDiApplication {
         System.out.println("----- petService");
         final PetService petService = ctx.getBean("petService", PetService.class);
         System.out.println(petService.getPetType());
+
+        System.out.println("----- Bean Scope");
+        final SingletonBean singletonBean = ctx.getBean(SingletonBean.class);
+        System.out.println(singletonBean.getMyType());
+        final SingletonBean singletonBean1 = ctx.getBean(SingletonBean.class);
+        System.out.println(singletonBean1.getMyType());
+
+        final FactoryBean factoryBean = ctx.getBean(FactoryBean.class);
+        System.out.println(factoryBean.getMyType());
+        final FactoryBean factoryBean1 = ctx.getBean(FactoryBean.class);
+        System.out.println(factoryBean1.getMyType());
 
     }
 
