@@ -1,5 +1,6 @@
 package com.khauminhduy.config;
 
+import com.khauminhduy.datasource.FakeDataSource;
 import com.khauminhduy.factory.PetServiceFactory;
 import com.khauminhduy.repositories.EnglishGreetingRepository;
 import com.khauminhduy.repositories.EnglishGreetingRepositoryImpl;
@@ -10,15 +11,31 @@ import com.khauminhduy.services.PetService;
 import com.khauminhduy.services.PrimaryGreetingService;
 import com.khauminhduy.services.PropertyGreetingService;
 import com.khauminhduy.services.SetterGreetingService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.PropertySource;
 
+//@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    public FakeDataSource fakeDataSource(
+            @Value("${db.username}") String username,
+            @Value("${db.password}") String password,
+            @Value("${db.jdbcUrl}") String jdbcUrl) {
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcUrl(jdbcUrl);
+
+        return fakeDataSource;
+    }
 
     @Bean
     public PetServiceFactory petServiceFactory() {

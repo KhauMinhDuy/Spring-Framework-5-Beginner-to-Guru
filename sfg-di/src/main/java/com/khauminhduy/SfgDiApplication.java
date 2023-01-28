@@ -6,6 +6,7 @@ import com.khauminhduy.controller.MyController;
 import com.khauminhduy.controller.PrimaryInjectedController;
 import com.khauminhduy.controller.PropertyInjectedController;
 import com.khauminhduy.controller.SetterInjectedController;
+import com.khauminhduy.datasource.FakeDataSource;
 import com.khauminhduy.services.FactoryBean;
 import com.khauminhduy.services.PetService;
 import com.khauminhduy.services.SingletonBean;
@@ -60,6 +61,12 @@ public class SfgDiApplication {
         System.out.println(factoryBean.getMyType());
         final FactoryBean factoryBean1 = ctx.getBean(FactoryBean.class);
         System.out.println(factoryBean1.getMyType());
+
+        System.out.println("----- fakeDataSource");
+        final FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+        System.out.println(fakeDataSource.getUsername());
+        System.out.println(fakeDataSource.getPassword());
+        System.out.println(fakeDataSource.getJdbcUrl());
 
     }
 
