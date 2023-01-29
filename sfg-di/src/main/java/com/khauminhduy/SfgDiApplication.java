@@ -1,5 +1,7 @@
 package com.khauminhduy;
 
+import com.khauminhduy.config.SfgConfiguration;
+import com.khauminhduy.config.SfgConstructorConfiguration;
 import com.khauminhduy.controller.ConstructorInjectedController;
 import com.khauminhduy.controller.I18nController;
 import com.khauminhduy.controller.MyController;
@@ -67,6 +69,18 @@ public class SfgDiApplication {
         System.out.println(fakeDataSource.getUsername());
         System.out.println(fakeDataSource.getPassword());
         System.out.println(fakeDataSource.getJdbcUrl());
+
+//        System.out.println("----- SfgConfiguration");
+//        final SfgConfiguration sfgConfiguration = ctx.getBean(SfgConfiguration.class);
+//        System.out.println(sfgConfiguration.getUsername());
+//        System.out.println(sfgConfiguration.getPassword());
+//        System.out.println(sfgConfiguration.getJdbcUrl());
+
+        System.out.println("----- sfgConstructorConfiguration");
+        final SfgConstructorConfiguration sfgConstructorConfiguration = ctx.getBean(SfgConstructorConfiguration.class);
+        System.out.println(sfgConstructorConfiguration.getUsername());
+        System.out.println(sfgConstructorConfiguration.getPassword());
+        System.out.println(sfgConstructorConfiguration.getJdbcUrl());
 
     }
 

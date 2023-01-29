@@ -1,8 +1,23 @@
 spring:
   profiles:
-    active: VN,dog,qa
+    active:
+      - VN
+      - dog
+      - dev
 
 db:
   username: YMLsuperUser
   password: YMLdbPassword
   jdbcUrl: YMLsomeUrlForDb
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+db:
+  username: YMLProdsuperUser
+  password: YMLProddbPassword
+  jdbcUrl: YMLProdsomeUrlForDb
+
