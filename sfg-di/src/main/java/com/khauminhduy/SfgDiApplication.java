@@ -1,6 +1,5 @@
 package com.khauminhduy;
 
-import com.khauminhduy.config.SfgConfiguration;
 import com.khauminhduy.config.SfgConstructorConfiguration;
 import com.khauminhduy.controller.ConstructorInjectedController;
 import com.khauminhduy.controller.I18nController;
