@@ -6,13 +6,15 @@ import com.khauminhduy.services.OwnerService;
 import com.khauminhduy.services.PetService;
 import com.khauminhduy.services.PetTypeService;
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @AllArgsConstructor
 @Service
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+@Profile({"default", "map"})
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;
     private final PetService petService;
