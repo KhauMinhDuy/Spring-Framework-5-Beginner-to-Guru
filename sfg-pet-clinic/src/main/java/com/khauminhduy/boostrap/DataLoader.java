@@ -11,11 +11,14 @@ import com.khauminhduy.services.PetTypeService;
 import com.khauminhduy.services.SpecialtyService;
 import com.khauminhduy.services.VetService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 
+@Slf4j
 @AllArgsConstructor
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -26,6 +29,7 @@ public class DataLoader implements CommandLineRunner {
     private final SpecialtyService specialtyService;
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
 
         if(petTypeService.findAll().size() == 0) {
@@ -43,7 +47,7 @@ public class DataLoader implements CommandLineRunner {
         dog.setName("cat");
         PetType savedCatPetType = petTypeService.save(cat);
 
-        System.out.println("Loaded PetType...");
+        log.info("Loaded PetType...");
 
         Speciality radiology = new Speciality();
         radiology.setDescription("Radiology");
@@ -57,7 +61,7 @@ public class DataLoader implements CommandLineRunner {
         dentistry.setDescription("dentistry");
         Speciality savedDentistry = specialtyService.save(dentistry);
 
-        System.out.println("Loaded Specialty...");
+        log.info("Loaded Specialty...");
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
@@ -90,7 +94,7 @@ public class DataLoader implements CommandLineRunner {
 
         ownerService.save(owner2);
 
-        System.out.println("Loaded Owners...");
+        log.info("Loaded Owners...");
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Nguyen");
@@ -106,7 +110,7 @@ public class DataLoader implements CommandLineRunner {
 
         vetService.save(vet2);
 
-        System.out.println("Loaded Vets...");
+        log.info("Loaded Vets...");
     }
 
 }
