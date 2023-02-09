@@ -2,9 +2,9 @@ package com.khauminhduy.services;
 
 import com.khauminhduy.domain.Recipe;
 import com.khauminhduy.repositories.RecipeRepository;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -12,7 +12,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RecipeServiceImplTest {
 
@@ -21,7 +21,7 @@ public class RecipeServiceImplTest {
     @Mock
     private RecipeRepository recipeRepository;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         recipeService = new RecipeServiceImpl(recipeRepository);
@@ -37,7 +37,7 @@ public class RecipeServiceImplTest {
 
         Set<Recipe> recipes = recipeService.getRecipes();
 
-        Assert.assertEquals(1, recipes.size());
+        assertEquals(1, recipes.size());
 
 //        kiem tra ham findAll() duoc goi duy nhat 1 lan
         Mockito.verify(recipeRepository, Mockito.times(1)).findAll();
